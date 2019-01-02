@@ -13,6 +13,9 @@ class App extends Component {
 
   componentDidMount() {
     fetch('http://yts.ag/api/v2/list_movies.json?sort_by=rating')
+    .then(potato => potato.json()) //potato 는 어떤 이름으로 해도 상관없다. console 에는 response 로 노출된다.
+    .then(json => console.log(json)) //fetch 에서 받은 파일을 json 형태로 받아오는것.
+    .catch(err => console.log(err))
   }
 
   _renderMovies = () => {
